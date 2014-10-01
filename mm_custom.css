@@ -1,0 +1,55 @@
+.site-header.container {
+    width: 100%;
+    height: 250px;
+    padding: 0;
+}
+.site-header.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+nav.header-nav.navbar {
+    width: 100%; 
+    text-align: center;
+}
+
+.site-nameLogo {
+    text-align: center;
+}
+
+.mainTab-item > a {
+text-transform: uppercase !important;
+letter-spacing: 1px;
+}
+/* Ads */
+/*Right sidebar */
+#google_image_div a img{
+    width: 235px;
+}
+object#google_flash_embed {
+width: 235px;
+height: 470px;
+}
+
+/* Modules */
+/* Hide Admin Avatar on Blog Posts */
+.blogSection-entry a[href="/members/Rick"] img.avatar {
+display: none;
+}
+article.entry.blogSection-entry {
+border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+/* Resets */
+.poweredBy-text {display: none;}
+.footer-right a:first-of-type {
+    display: none;
+}
+.entry-title > a {
+    font-family: "aw-conqueror-carved-four";
+}
+section.module-body {
+    background: rgba(255, 255, 255, 0.71);
+    border-radius: 5px;
+    padding: 17px;
+}
