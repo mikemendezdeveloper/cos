@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <div id="container">
+        <a class="entry-content" href="#">
+            <img src="images/300x300.jpg" />
+        </a>
+        <a class="entry-content" href="#">
+            <img src="images/addYourPhoto.png" />
+        </a>
+        <a class="entry-content" href="#">
+            <img src="images/broDown.png" />
+        </a>
+
+        <div id="modalWindow" class="modal">
+            <div class="closeModal">
+                <button type="button" class="closeButton"></button>
+            </div>
+            <div class="photo">
+                <img class="reponsiveImg" src="">
+            </div>
+        </div>
+        <div class="modal-background"></div>
+    </div>
+<style>
+/* Test Page Syles */
+div#container {
+    width: 980px;
+    margin: 0 auto;
+}
+/* end test styles */
+
+
+/* Modal Styles */
+.modal {
+    z-index: 1000;
+    display: none;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    padding: 25px;
+}
+.closeModal {
+    cursor: pointer;
+    position: absolute;
+    right: -50px;
+    top: 0;
+    background: #fff;
+    padding: 5px 5px;
+}
+.closeButton {
+    cursor: pointer;
+    width: 33px;
+    height: 34px;
+    text-align: center;
+    position: relative;
+    vertical-align: text-top;
+    display: inline-block;
+    border: 0;
+    background-repeat: no-repeat;
+    font-style: normal;
+}
+.photo {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-width: 100%;
+}
+/* Modal Backdrop */
+.modal-background {
+    background: #000;
+    opacity: .4;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script>
+var x$ = jQuery;
+
+/* Helper Function */
+x$.fn.extend({
+    show: function(){
+        this.css("display", "block");
+    },
+    hide: function(){
+        this.css("display", "none");
+    }
+});
+
+/* Image Click --> Link to Blog Post */
+x$(".section-member-blogEntries .entry-content a, .blogSection-entry .entry-content a").each(
+    function(i, elem){
+        x$(this).click(function(e){
+            e.preventDefault();
+            var articleLocation = x$(this).parents(".entry-content").siblings(".entry-readMore").attr("href");
+            window.location = articleLocation;
+        });
+    }
+);
+
+var positionModal = function(modalWindow){
+    //get screen size
+    //get window size
+    //get distance from top of screen
+    //set css on the modal window
+}
+
+/* Modal Light Box */
+var modalWindow = x$("#modalWindow");
+x$(".entry-content img").each(function(){
+    var imgSrc = x$(this).attr("src");
+    x$(this).parent().click(function(e){
+        e.preventDefault();
+        x$(".reponsiveImg").attr("src", imgSrc);
+        positionModal(modalWindow);
+        modalWindow.show();     
+    });
+});
+
+x$(".closeButton").click(function(){
+    modalWindow.hide();
+});
+</script>
+</body>
+</html>
